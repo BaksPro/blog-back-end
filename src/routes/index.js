@@ -1,19 +1,17 @@
-import {Router} from 'express';
-import {version} from '../../package.json';
+'use strict';
+const routes = require('express').Router();
+import postRoutes from './posts';
 
 
-export default function () {
-    const router = Router();
+/*
+routes.use('/users', loadRoutes);
+
+routes.use('/comments', loadRoutes);
+routes.use('/auth', authRoutes);
+
+*/
+routes.use('/posts', postRoutes);
+
+module.exports = routes;
 
 
-    router.get('/', (req, res) => res.json({version}));
-    router.get('/status', (req, res) => res.send('OK'));
-
-
-    //
-    // mount routes here
-    //
-
-
-    return router;
-}

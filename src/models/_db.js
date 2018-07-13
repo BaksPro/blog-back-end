@@ -3,9 +3,11 @@ import Bookshelf from 'bookshelf';
 import config from '../config';
 
 
-var knex = Knex(config.get('db'));
-var bookshelf = Bookshelf(knex);
+let knex = Knex(config.get('db'));
+let bookshelf = Bookshelf(knex);
 bookshelf.plugin(['registry']);
+
+console.log(config);
 
 
 export default bookshelf;

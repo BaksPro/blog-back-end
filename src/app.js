@@ -1,52 +1,28 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import routing from './routes'
 import config from './config';
-import middleware from './middleware';
-import routing from './routes';
 import {AppError} from './helpers';
-import {
-    Role,
-    User
-} from './models';
-import exprest from 'exp-rest';
 
 
 // app
 const app = express();
-
 
 // middleware
 app.use(bodyParser.json());
 app.use(cors({origin: true}));
 
 
-// router middleware
-app.use(middleware());
 
 
-// rest ----------------------------------------------------------------------------------------------------------------
-const rest = exprest({
-    pagination: {
-        itemsPerPage: 50,
-    },
-    resources: [
-        {
-            model: User,
-            collectionName: 'users',
-            itemName: 'user',
-            identifier: 'id'
-        },
-        Role
-    ]
-});
-app.use(rest);
+
+
 //----------------------------------------------------------------------------------------------------------------------
 
 
 // routing
-app.use('/', routing());
-
+app.use('/', routing);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

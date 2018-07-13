@@ -1,12 +1,12 @@
 module.exports = {
-    "client": "mysql",
-    "connection": {
-        "user": "root",
-        "password": "",
-        "host": "localhost",
-        "database": "node-rest"
+    'client': 'pg',
+    'connection': {
+        'user': 'postgres',
+        'password': 'postgres',
+        'host': 'localhost',
+        'database': 'posts'
     },
-    "migrations": {
-        "tableName": "knex_migrations"
+    'migrations': {
+        'tableName': 'knex_migrations'
     }
 };

@@ -10,16 +10,21 @@ class User extends BaseModel {
 
     hidden = ['password'];
 
-    role() {
-        return this.belongsTo('Role', 'role_id');
+    posts() {
+        return this.hasMany('Post', 'user_id');
     }
+
+    comments() {
+        return this.hasMany('Comment', 'user_id');
+    }
+
+
 
     validations = new Checkit({
         email       : ['email', 'required'],
         password    : ['required', 'string'],
         first_name  : ['required', 'string'],
         last_name   : ['required', 'string'],
-        role_id     : ['integer', 'required'],
     });
 }
 

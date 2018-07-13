@@ -4,6 +4,13 @@ import db from './_db';
 
 
 class BaseModel extends db.Model {
+
+    constructor() {
+        super();
+        this.on('saving', () =>
+            this.validations.run(this.attributes));
+    }
+
     toJSON() {
         let json = super.toJSON();
 
@@ -25,3 +32,5 @@ class BaseModel extends db.Model {
 
 
 export default BaseModel;
+
+
