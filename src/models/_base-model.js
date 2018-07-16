@@ -7,8 +7,7 @@ class BaseModel extends db.Model {
 
     constructor() {
         super();
-        this.on('saving', (model, attrs, options) =>
-            this.validations.run(this.attributes), this);
+        this.on('saving', () => this.validations.run(this.attributes));
 
     }
 
