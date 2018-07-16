@@ -1,14 +1,14 @@
 'use strict';
 import * as postaController  from '../../controllers/post/postController';
 const router = require('express').Router();
+router.get('/', postaController.getAllPost);
 router.post('/', postaController.addPost);
-/*
-router.get('/', auth);
-router.get('/:userId', );
+router.put('/:postId', postaController.updatePost);
 
-router.get('/:postId', auth);
-router.put('/:postId', auth);
-router.delete('/:postId', register);
-*/
+
+router.get('/:postId', postaController.getPost);
+
+router.delete('/:postId', postaController.deletePost);
+
 module.exports = router;
 
